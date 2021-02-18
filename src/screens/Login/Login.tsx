@@ -1,16 +1,25 @@
 import React, { useState } from 'react'
 import { View, Text, TextInput, Button, TouchableOpacity } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { Navigation } from 'react-native-navigation'
+import {
+  Navigation,
+  NavigationFunctionComponent
+} from 'react-native-navigation'
 
-import { goToTabs } from '../../navigator'
+import { goToTabs } from 'src/navigator'
 
 import styles from './styles'
 
-const Login = (props) => {
-  const [username, setUsername] = useState('')
+interface Props {
+  componentId: string
+}
 
-  const login = async () => {
+const Login: NavigationFunctionComponent = ({
+  componentId
+}: Props): JSX.Element => {
+  const [username, setUsername] = useState<string | null>(null)
+
+  const login = async (): Promise<void> => {
     if (username) {
       await AsyncStorage.setItem('username', username)
       goToTabs(username)
@@ -18,7 +27,7 @@ const Login = (props) => {
   }
 
   const goToForgotPassword = (): void => {
-    Navigation.push(props.componentId, {
+    Navigation.push(componentId, {
       component: {
         name: 'ForgotPasswordScreen'
       }

@@ -17,7 +17,7 @@ module.exports = {
     'comma-dangle': ['error', 'never'],
     'dot-notation': 'off',
     '@typescript-eslint/dot-notation': ['error'],
-    quotes: ['error', 'single'],
+    quotes: ['error', 'single', { 'avoidEscape': true }],
     'prettier/prettier': [
       'error',
       {

@@ -2,12 +2,14 @@ import React from 'react'
 import { View, Text, Button } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-import { goToLogin } from '../../navigator'
+import { goToLogin } from 'src/navigator'
 import styles from './styles'
 
-const Home = (props) => {
-  const { username } = props
+interface Props {
+  username: string
+}
 
+const Home = ({ username }: Props): JSX.Element => {
   const logout = async () => {
     await AsyncStorage.removeItem('username')
     goToLogin()

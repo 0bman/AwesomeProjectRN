@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { View, Text, TextInput, Button } from 'react-native'
+import { NavigationFunctionComponent } from 'react-native-navigation'
 
 import styles from './styles'
 
-const ForgotPassword = () => {
-  const [_email, setEmail] = useState('')
+const sendEmail = async () => {}
 
-  const sendEmail = async () => {}
+const ForgotPassword: NavigationFunctionComponent = (): JSX.Element => {
+  const [_email, setEmail] = useState<string | null>(null)
 
   return (
     <View style={styles.wrapper}>

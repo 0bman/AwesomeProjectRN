@@ -1,11 +1,11 @@
 import { Navigation } from 'react-native-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-import Home from './screens/Home'
-import Login from './screens/Login'
-import ForgotPassword from './screens/ForgotPassword'
-import Feed from './screens/Feed'
-import Gallery from './screens/Gallery'
+import Home from 'src/screens/Home'
+import Login from 'src/screens/Login'
+import ForgotPassword from 'src/screens/ForgotPassword'
+import Feed from 'src/screens/Feed'
+import Gallery from 'src/screens/Gallery'
 
 Navigation.registerComponent('LoginScreen', () => Login)
 Navigation.registerComponent('ForgotPasswordScreen', () => ForgotPassword)
@@ -32,7 +32,7 @@ const goToLogin = () =>
     }
   })
 
-const goToTabs = async (username: any) => {
+const goToTabs = async (username: string) => {
   const homeImg = await Icon.getImageSource('home', 30)
   const imageImg = await Icon.getImageSource('image', 30)
   const rssSquareImg = await Icon.getImageSource('rss-square', 30)
